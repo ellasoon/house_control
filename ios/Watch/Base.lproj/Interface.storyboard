@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
+                    <items>
+                        <label alignment="left" verticalAlignment="center" text="Alarm" id="orp-IS-1yc">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label alignment="left" verticalAlignment="center" text="Connecting ..." id="wOC-1o-65O">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <label height="21.5" alignment="left" verticalAlignment="center" text="Garage Door" id="pY1-eV-BEk">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label alignment="left" verticalAlignment="center" text="Connecting ..." id="UGZ-jx-Id8">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <separator alignment="left" verticalAlignment="center" alpha="0.0" id="Pd1-Tt-4cr"/>
+                        <button width="1" alignment="left" verticalAlignment="center" title="Toggle Garage" id="bzp-IF-LN0">
+                            <connections>
+                                <action selector="garageDoorButtonPressed" destination="AgC-eL-Hgc" id="qoo-Ku-HfO"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="center" verticalAlignment="bottom" id="x9H-Eu-Dxz">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" alpha="0.65000000000000002" text="Last Updated" textAlignment="left" id="nqC-KH-736">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <label alignment="right" verticalAlignment="center" text="..." id="RCx-sa-MF1">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <menu key="menu" id="lF3-CW-Uxv">
+                        <items>
+                            <menuItem title="Off" icon="decline" id="744-R1-EMU">
+                                <connections>
+                                    <action selector="alarmOffMenuPressed" destination="AgC-eL-Hgc" id="XYI-L4-LUb"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Refresh" icon="repeat" id="GMZ-01-qEW">
+                                <connections>
+                                    <action selector="refreshMenuPressed" destination="AgC-eL-Hgc" id="Pv9-sc-iYH"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Away" icon="share" id="WaJ-cQ-nds">
+                                <connections>
+                                    <action selector="alarmAwayMenuPressed" destination="AgC-eL-Hgc" id="hto-Ag-k6L"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stay" icon="accept" id="5nZ-Dj-nmc">
+                                <connections>
+                                    <action selector="alarmStayMenuPressed" destination="AgC-eL-Hgc" id="sOf-Lu-aeW"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="alarmStatusLabel" destination="wOC-1o-65O" id="zFB-0o-NYC"/>
+                        <outlet property="garageDoorButton" destination="bzp-IF-LN0" id="t4A-H2-3pq"/>
+                        <outlet property="garageDoorStatusLabel" destination="UGZ-jx-Id8" id="9kd-wa-Omj"/>
+                        <outlet property="lastUpdatedLabel" destination="RCx-sa-MF1" id="G4W-Dc-D7g"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="305" y="387"/>
+        </scene>
+    </scenes>
+</document>
