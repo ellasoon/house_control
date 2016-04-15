@@ -8,6 +8,6 @@
   "dependencies": {
     "react-native": "^0.17.0",
     "react-native-event-source": "0.0.4",
-    "react-native-quick-actions": "^0.1.0"
+    "react-native-quick-actions": "^0.1.3"
   }
 }
