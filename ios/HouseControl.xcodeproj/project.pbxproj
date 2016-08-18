@@ -20,18 +20,19 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		51B901296220478BBF94886F /* libRNQuickAction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0902BE34084191B9EC7C05 /* libRNQuickAction.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		918636501C446F880019DA22 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9186364E1C446F880019DA22 /* Interface.storyboard */; };
-		918636521C446F880019DA22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918636511C446F880019DA22 /* Assets.xcassets */; };
-		918636591C446F880019DA22 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 918636581C446F880019DA22 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9186365E1C446F880019DA22 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186365D1C446F880019DA22 /* InterfaceController.swift */; };
-		918636601C446F880019DA22 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186365F1C446F880019DA22 /* ExtensionDelegate.swift */; };
-		918636621C446F880019DA22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 918636611C446F880019DA22 /* Assets.xcassets */; };
-		918636661C446F880019DA22 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9186364C1C446F880019DA22 /* Watch.app */; };
-		91B6DC2A1C4471A10045C0C4 /* libRNEventSource.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B6DC211C44718A0045C0C4 /* libRNEventSource.a */; };
-		91B6DC2B1C4471A10045C0C4 /* libRNQuickAction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B6DC291C44719A0045C0C4 /* libRNQuickAction.a */; };
-		91CBD28D1C4472EA001BE167 /* WatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CBD28C1C4472EA001BE167 /* WatchManager.m */; };
+		9177F1CC1D65F4DB00F8A10E /* WatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9177F1CB1D65F4DB00F8A10E /* WatchManager.m */; };
+		9177F1D71D65F58600F8A10E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9177F1D51D65F58600F8A10E /* Interface.storyboard */; };
+		9177F1D91D65F58600F8A10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9177F1D81D65F58600F8A10E /* Assets.xcassets */; };
+		9177F1E01D65F58600F8A10E /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9177F1DF1D65F58600F8A10E /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9177F1E51D65F58600F8A10E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177F1E41D65F58600F8A10E /* InterfaceController.swift */; };
+		9177F1E71D65F58600F8A10E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177F1E61D65F58600F8A10E /* ExtensionDelegate.swift */; };
+		9177F1E91D65F58600F8A10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9177F1E81D65F58600F8A10E /* Assets.xcassets */; };
+		9177F1EE1D65F58600F8A10E /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9177F1D31D65F58600F8A10E /* Watch.app */; };
+		A2926B4733A24D9788498B07 /* libRNEventSource.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D96AEA68C0447681020AEB /* libRNEventSource.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,37 +113,37 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		9186365A1C446F880019DA22 /* PBXContainerItemProxy */ = {
+		9177F1C51D65F49900F8A10E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 918636571C446F880019DA22;
-			remoteInfo = "Watch Extension";
-		};
-		918636641C446F880019DA22 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9186364B1C446F880019DA22;
-			remoteInfo = Watch;
-		};
-		91B6DC201C44718A0045C0C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 91B6DC1B1C44718A0045C0C4 /* RNEventSource.xcodeproj */;
+			containerPortal = BFFB1B34C7F340958B6EF82B /* RNEventSource.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 911488931B28A9A700A81437;
 			remoteInfo = RNEventSource;
 		};
-		91B6DC221C44718A0045C0C4 /* PBXContainerItemProxy */ = {
+		9177F1C71D65F49900F8A10E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 91B6DC1B1C44718A0045C0C4 /* RNEventSource.xcodeproj */;
+			containerPortal = BFFB1B34C7F340958B6EF82B /* RNEventSource.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9114889E1B28A9A700A81437;
 			remoteInfo = RNEventSourceTests;
 		};
-		91B6DC281C44719A0045C0C4 /* PBXContainerItemProxy */ = {
+		9177F1E11D65F58600F8A10E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 91B6DC241C44719A0045C0C4 /* RNQuickAction.xcodeproj */;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9177F1DE1D65F58600F8A10E;
+			remoteInfo = "Watch Extension";
+		};
+		9177F1EB1D65F58600F8A10E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9177F1D21D65F58600F8A10E;
+			remoteInfo = Watch;
+		};
+		9192C69D1D65F2EB0067BBA9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D31AABD1A5E340D7BBC20008 /* RNQuickAction.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 91090D8B1BB6C934009AE358;
 			remoteInfo = RNQuickAction;
@@ -150,26 +151,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		918636761C446F880019DA22 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				918636591C446F880019DA22 /* Watch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		918636781C446F880019DA22 /* Embed Watch Content */ = {
+		9177F1ED1D65F58600F8A10E /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				918636661C446F880019DA22 /* Watch.app in Embed Watch Content */,
+				9177F1EE1D65F58600F8A10E /* Watch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9177F1F21D65F58600F8A10E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9177F1E01D65F58600F8A10E /* Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -194,21 +195,23 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HouseControl/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HouseControl/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		54D96AEA68C0447681020AEB /* libRNEventSource.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNEventSource.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		9186364C1C446F880019DA22 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9186364F1C446F880019DA22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		918636511C446F880019DA22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		918636531C446F880019DA22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		918636581C446F880019DA22 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9186365D1C446F880019DA22 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		9186365F1C446F880019DA22 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		918636611C446F880019DA22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		918636631C446F880019DA22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91B6DC1B1C44718A0045C0C4 /* RNEventSource.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNEventSource.xcodeproj; path = "../node_modules/react-native-event-source/iOS/RNEventSource.xcodeproj"; sourceTree = "<group>"; };
-		91B6DC241C44719A0045C0C4 /* RNQuickAction.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNQuickAction.xcodeproj; path = "../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction.xcodeproj"; sourceTree = "<group>"; };
-		91CBD28B1C4472EA001BE167 /* WatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchManager.h; path = HouseControl/WatchManager.h; sourceTree = "<group>"; };
-		91CBD28C1C4472EA001BE167 /* WatchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchManager.m; path = HouseControl/WatchManager.m; sourceTree = "<group>"; };
+		9177F1CA1D65F4DB00F8A10E /* WatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WatchManager.h; path = HouseControl/WatchManager.h; sourceTree = "<group>"; };
+		9177F1CB1D65F4DB00F8A10E /* WatchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WatchManager.m; path = HouseControl/WatchManager.m; sourceTree = "<group>"; };
+		9177F1D31D65F58600F8A10E /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9177F1D61D65F58600F8A10E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		9177F1D81D65F58600F8A10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9177F1DA1D65F58600F8A10E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9177F1DF1D65F58600F8A10E /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9177F1E41D65F58600F8A10E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		9177F1E61D65F58600F8A10E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		9177F1E81D65F58600F8A10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9177F1EA1D65F58600F8A10E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFFB1B34C7F340958B6EF82B /* RNEventSource.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNEventSource.xcodeproj; path = "../node_modules/react-native-event-source/iOS/RNEventSource.xcodeproj"; sourceTree = "<group>"; };
+		CD0902BE34084191B9EC7C05 /* libRNQuickAction.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNQuickAction.a; sourceTree = "<group>"; };
+		D31AABD1A5E340D7BBC20008 /* RNQuickAction.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNQuickAction.xcodeproj; path = "../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,8 +227,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B6DC2A1C4471A10045C0C4 /* libRNEventSource.a in Frameworks */,
-				91B6DC2B1C4471A10045C0C4 /* libRNQuickAction.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -235,10 +237,12 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				51B901296220478BBF94886F /* libRNQuickAction.a in Frameworks */,
+				A2926B4733A24D9788498B07 /* libRNEventSource.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		918636551C446F880019DA22 /* Frameworks */ = {
+		9177F1DC1D65F58600F8A10E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -324,8 +328,8 @@
 		13B07FAE1A68108700A75B9A /* HouseControl */ = {
 			isa = PBXGroup;
 			children = (
-				91CBD28B1C4472EA001BE167 /* WatchManager.h */,
-				91CBD28C1C4472EA001BE167 /* WatchManager.m */,
+				9177F1CA1D65F4DB00F8A10E /* WatchManager.h */,
+				9177F1CB1D65F4DB00F8A10E /* WatchManager.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -356,8 +360,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				91B6DC241C44719A0045C0C4 /* RNQuickAction.xcodeproj */,
-				91B6DC1B1C44718A0045C0C4 /* RNEventSource.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -368,6 +370,8 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				D31AABD1A5E340D7BBC20008 /* RNQuickAction.xcodeproj */,
+				BFFB1B34C7F340958B6EF82B /* RNEventSource.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -386,8 +390,8 @@
 				13B07FAE1A68108700A75B9A /* HouseControl */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HouseControlTests */,
-				9186364D1C446F880019DA22 /* Watch */,
-				9186365C1C446F880019DA22 /* Watch Extension */,
+				9177F1D41D65F58600F8A10E /* Watch */,
+				9177F1E31D65F58600F8A10E /* Watch Extension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 			);
 			indentWidth = 2;
@@ -399,46 +403,46 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* HouseControl.app */,
 				00E356EE1AD99517003FC87E /* HouseControlTests.xctest */,
-				9186364C1C446F880019DA22 /* Watch.app */,
-				918636581C446F880019DA22 /* Watch Extension.appex */,
+				9177F1D31D65F58600F8A10E /* Watch.app */,
+				9177F1DF1D65F58600F8A10E /* Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9186364D1C446F880019DA22 /* Watch */ = {
+		9177F1B71D65F49900F8A10E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9186364E1C446F880019DA22 /* Interface.storyboard */,
-				918636511C446F880019DA22 /* Assets.xcassets */,
-				918636531C446F880019DA22 /* Info.plist */,
+				9177F1C61D65F49900F8A10E /* libRNEventSource.a */,
+				9177F1C81D65F49900F8A10E /* RNEventSourceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9177F1D41D65F58600F8A10E /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				9177F1D51D65F58600F8A10E /* Interface.storyboard */,
+				9177F1D81D65F58600F8A10E /* Assets.xcassets */,
+				9177F1DA1D65F58600F8A10E /* Info.plist */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
 		};
-		9186365C1C446F880019DA22 /* Watch Extension */ = {
+		9177F1E31D65F58600F8A10E /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9186365D1C446F880019DA22 /* InterfaceController.swift */,
-				9186365F1C446F880019DA22 /* ExtensionDelegate.swift */,
-				918636611C446F880019DA22 /* Assets.xcassets */,
-				918636631C446F880019DA22 /* Info.plist */,
+				9177F1E41D65F58600F8A10E /* InterfaceController.swift */,
+				9177F1E61D65F58600F8A10E /* ExtensionDelegate.swift */,
+				9177F1E81D65F58600F8A10E /* Assets.xcassets */,
+				9177F1EA1D65F58600F8A10E /* Info.plist */,
 			);
 			path = "Watch Extension";
 			sourceTree = "<group>";
 		};
-		91B6DC1C1C44718A0045C0C4 /* Products */ = {
+		9192C6901D65F2EB0067BBA9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91B6DC211C44718A0045C0C4 /* libRNEventSource.a */,
-				91B6DC231C44718A0045C0C4 /* RNEventSourceTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		91B6DC251C44719A0045C0C4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				91B6DC291C44719A0045C0C4 /* libRNQuickAction.a */,
+				9192C69E1D65F2EB0067BBA9 /* libRNQuickAction.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,42 +476,42 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				918636781C446F880019DA22 /* Embed Watch Content */,
+				9177F1ED1D65F58600F8A10E /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				918636651C446F880019DA22 /* PBXTargetDependency */,
+				9177F1EC1D65F58600F8A10E /* PBXTargetDependency */,
 			);
 			name = HouseControl;
 			productName = "Hello World";
 			productReference = 13B07F961A680F5B00A75B9A /* HouseControl.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9186364B1C446F880019DA22 /* Watch */ = {
+		9177F1D21D65F58600F8A10E /* Watch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 918636771C446F880019DA22 /* Build configuration list for PBXNativeTarget "Watch" */;
+			buildConfigurationList = 9177F1F31D65F58600F8A10E /* Build configuration list for PBXNativeTarget "Watch" */;
 			buildPhases = (
-				9186364A1C446F880019DA22 /* Resources */,
-				918636761C446F880019DA22 /* Embed App Extensions */,
+				9177F1D11D65F58600F8A10E /* Resources */,
+				9177F1F21D65F58600F8A10E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9186365B1C446F880019DA22 /* PBXTargetDependency */,
+				9177F1E21D65F58600F8A10E /* PBXTargetDependency */,
 			);
 			name = Watch;
 			productName = Watch;
-			productReference = 9186364C1C446F880019DA22 /* Watch.app */;
+			productReference = 9177F1D31D65F58600F8A10E /* Watch.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		918636571C446F880019DA22 /* Watch Extension */ = {
+		9177F1DE1D65F58600F8A10E /* Watch Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 918636751C446F880019DA22 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildConfigurationList = 9177F1EF1D65F58600F8A10E /* Build configuration list for PBXNativeTarget "Watch Extension" */;
 			buildPhases = (
-				918636541C446F880019DA22 /* Sources */,
-				918636551C446F880019DA22 /* Frameworks */,
-				918636561C446F880019DA22 /* Resources */,
+				9177F1DB1D65F58600F8A10E /* Sources */,
+				9177F1DC1D65F58600F8A10E /* Frameworks */,
+				9177F1DD1D65F58600F8A10E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -515,7 +519,7 @@
 			);
 			name = "Watch Extension";
 			productName = "Watch Extension";
-			productReference = 918636581C446F880019DA22 /* Watch Extension.appex */;
+			productReference = 9177F1DF1D65F58600F8A10E /* Watch Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -524,28 +528,24 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 468H2V2QVS;
+					9177F1D21D65F58600F8A10E = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
-					9186364B1C446F880019DA22 = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 468H2V2QVS;
-					};
-					918636571C446F880019DA22 = {
-						CreatedOnToolsVersion = 7.2;
+					9177F1DE1D65F58600F8A10E = {
+						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 468H2V2QVS;
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "House Control" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HouseControl" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -598,20 +598,20 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = 91B6DC1C1C44718A0045C0C4 /* Products */;
-					ProjectRef = 91B6DC1B1C44718A0045C0C4 /* RNEventSource.xcodeproj */;
+					ProductGroup = 9177F1B71D65F49900F8A10E /* Products */;
+					ProjectRef = BFFB1B34C7F340958B6EF82B /* RNEventSource.xcodeproj */;
 				},
 				{
-					ProductGroup = 91B6DC251C44719A0045C0C4 /* Products */;
-					ProjectRef = 91B6DC241C44719A0045C0C4 /* RNQuickAction.xcodeproj */;
+					ProductGroup = 9192C6901D65F2EB0067BBA9 /* Products */;
+					ProjectRef = D31AABD1A5E340D7BBC20008 /* RNQuickAction.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* HouseControl */,
 				00E356ED1AD99517003FC87E /* HouseControlTests */,
-				9186364B1C446F880019DA22 /* Watch */,
-				918636571C446F880019DA22 /* Watch Extension */,
+				9177F1D21D65F58600F8A10E /* Watch */,
+				9177F1DE1D65F58600F8A10E /* Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -687,25 +687,25 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		91B6DC211C44718A0045C0C4 /* libRNEventSource.a */ = {
+		9177F1C61D65F49900F8A10E /* libRNEventSource.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNEventSource.a;
-			remoteRef = 91B6DC201C44718A0045C0C4 /* PBXContainerItemProxy */;
+			remoteRef = 9177F1C51D65F49900F8A10E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		91B6DC231C44718A0045C0C4 /* RNEventSourceTests.xctest */ = {
+		9177F1C81D65F49900F8A10E /* RNEventSourceTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RNEventSourceTests.xctest;
-			remoteRef = 91B6DC221C44718A0045C0C4 /* PBXContainerItemProxy */;
+			remoteRef = 9177F1C71D65F49900F8A10E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		91B6DC291C44719A0045C0C4 /* libRNQuickAction.a */ = {
+		9192C69E1D65F2EB0067BBA9 /* libRNQuickAction.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNQuickAction.a;
-			remoteRef = 91B6DC281C44719A0045C0C4 /* PBXContainerItemProxy */;
+			remoteRef = 9192C69D1D65F2EB0067BBA9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -727,20 +727,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9186364A1C446F880019DA22 /* Resources */ = {
+		9177F1D11D65F58600F8A10E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918636521C446F880019DA22 /* Assets.xcassets in Resources */,
-				918636501C446F880019DA22 /* Interface.storyboard in Resources */,
+				9177F1D91D65F58600F8A10E /* Assets.xcassets in Resources */,
+				9177F1D71D65F58600F8A10E /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		918636561C446F880019DA22 /* Resources */ = {
+		9177F1DD1D65F58600F8A10E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918636621C446F880019DA22 /* Assets.xcassets in Resources */,
+				9177F1E91D65F58600F8A10E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,7 +759,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "../node_modules/react-native/packager/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -776,18 +776,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CBD28D1C4472EA001BE167 /* WatchManager.m in Sources */,
+				9177F1CC1D65F4DB00F8A10E /* WatchManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		918636541C446F880019DA22 /* Sources */ = {
+		9177F1DB1D65F58600F8A10E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				918636601C446F880019DA22 /* ExtensionDelegate.swift in Sources */,
-				9186365E1C446F880019DA22 /* InterfaceController.swift in Sources */,
+				9177F1E71D65F58600F8A10E /* ExtensionDelegate.swift in Sources */,
+				9177F1E51D65F58600F8A10E /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,15 +799,15 @@
 			target = 13B07F861A680F5B00A75B9A /* HouseControl */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
-		9186365B1C446F880019DA22 /* PBXTargetDependency */ = {
+		9177F1E21D65F58600F8A10E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 918636571C446F880019DA22 /* Watch Extension */;
-			targetProxy = 9186365A1C446F880019DA22 /* PBXContainerItemProxy */;
+			target = 9177F1DE1D65F58600F8A10E /* Watch Extension */;
+			targetProxy = 9177F1E11D65F58600F8A10E /* PBXContainerItemProxy */;
 		};
-		918636651C446F880019DA22 /* PBXTargetDependency */ = {
+		9177F1EC1D65F58600F8A10E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9186364B1C446F880019DA22 /* Watch */;
-			targetProxy = 918636641C446F880019DA22 /* PBXContainerItemProxy */;
+			target = 9177F1D21D65F58600F8A10E /* Watch */;
+			targetProxy = 9177F1EB1D65F58600F8A10E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -821,10 +821,10 @@
 			path = HouseControl;
 			sourceTree = "<group>";
 		};
-		9186364E1C446F880019DA22 /* Interface.storyboard */ = {
+		9177F1D51D65F58600F8A10E /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9186364F1C446F880019DA22 /* Base */,
+				9177F1D61D65F58600F8A10E /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -836,10 +836,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -847,6 +843,11 @@
 				INFOPLIST_FILE = HouseControlTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HouseControl.app/HouseControl";
 			};
@@ -857,13 +858,14 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = HouseControlTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HouseControl.app/HouseControl";
 			};
@@ -873,20 +875,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/**",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native-event-source/iOS/RNEventSource",
 				);
 				INFOPLIST_FILE = HouseControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_NAME = HouseControl;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -894,19 +898,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/**",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native-event-source/iOS/RNEventSource",
 				);
 				INFOPLIST_FILE = HouseControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_NAME = HouseControl;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -948,6 +954,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native-event-source/iOS/RNEventSource",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -988,6 +996,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-quick-actions/RNQuickAction/RNQuickAction",
+					"$(SRCROOT)/../node_modules/react-native-event-source/iOS/RNEventSource",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -996,83 +1006,81 @@
 			};
 			name = Release;
 		};
-		918636671C446F880019DA22 /* Debug */ = {
+		9177F1F01D65F58600F8A10E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Watch_Extension;
-				INFOPLIST_FILE = Watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
-		918636681C446F880019DA22 /* Release */ = {
+		9177F1F11D65F58600F8A10E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CLANG_ANALYZER_NONNULL = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = Watch_Extension;
-				INFOPLIST_FILE = Watch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
-		918636691C446F880019DA22 /* Debug */ = {
+		9177F1F41D65F58600F8A10E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Debug;
 		};
-		9186366A1C446F880019DA22 /* Release */ = {
+		9177F1F51D65F58600F8A10E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Watch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_FILE = Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.HouseControl.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -1097,7 +1105,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "House Control" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "HouseControl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -1106,23 +1114,21 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		918636751C446F880019DA22 /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+		9177F1EF1D65F58600F8A10E /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				918636691C446F880019DA22 /* Debug */,
-				9186366A1C446F880019DA22 /* Release */,
+				9177F1F01D65F58600F8A10E /* Debug */,
+				9177F1F11D65F58600F8A10E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		918636771C446F880019DA22 /* Build configuration list for PBXNativeTarget "Watch" */ = {
+		9177F1F31D65F58600F8A10E /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				918636671C446F880019DA22 /* Debug */,
-				918636681C446F880019DA22 /* Release */,
+				9177F1F41D65F58600F8A10E /* Debug */,
+				9177F1F51D65F58600F8A10E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
