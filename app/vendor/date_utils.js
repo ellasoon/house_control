@@ -1,4 +1,4 @@
-var DateHelper = {
+var DateUtils = {
   // Takes the format of "Jan 15, 2007 15:45:00 GMT" and converts it to a relative time
   // Ruby strftime: %b %d, %Y %H:%M:%S GMT
   time_ago_in_words_with_parsing: function(from) {
@@ -33,4 +33,4 @@ var DateHelper = {
   }
 };
 
-module.exports = DateHelper;
+module.exports = DateUtils;

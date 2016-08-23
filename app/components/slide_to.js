@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   StyleSheet,
   Text,
   View,
   PanResponder,
   Animated,
-} = React;
+} = require('react-native');
 
 
 var CIRCLE_SIZE = 60;

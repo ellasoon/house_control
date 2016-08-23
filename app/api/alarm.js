@@ -1,5 +1,5 @@
 var AlarmAPI = function() {
-  var serverURL = require('./server_url.js'),
+  var serverURL = require('../config/server_url.js'),
       passcode;
 
   var _sendKey = function(key) {

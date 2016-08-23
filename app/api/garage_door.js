@@ -1,5 +1,5 @@
 var GarageDoorAPI = function() {
-  var serverURL = require('./server_url.js');
+  var serverURL = require('../config/server_url.js');
 
   return {
     toggle: function() {

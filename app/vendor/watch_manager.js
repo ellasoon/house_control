@@ -1,4 +1,3 @@
-var React = require('react-native');
 var {
   DeviceEventEmitter, NativeModules
 } = require('react-native');

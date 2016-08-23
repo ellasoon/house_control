@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   StyleSheet,
   Text,
@@ -8,51 +8,62 @@ var {
   DeviceEventEmitter,
   TouchableHighlight,
   AlertIOS,
-} = React;
+  AsyncStorage,
+} = require('react-native');
+
+import * as alarmActions from '../actions/alarm';
+import * as garageDoorActions from '../actions/garage_door';
+import WatchConnectivity from '../components/watch_connectivity';
+
+const STORAGE_KEY = 'HouseControlApp:passcode';
 
 var EventSource   = require('NativeModules').RNEventSource,
-    ServerURL     = require('./server_url.js'),
-    SlideTo       = require('./SlideTo'),
-    GarageDoorAPI = require('./GarageDoorAPI'),
-    GarageDoor    = require('./GarageDoor'),
+    ServerURL     = require('../config/server_url.js'),
+    SlideTo       = require('./slide_to'),
+    GarageDoorAPI = require('../api/garage_door'),
+    GarageDoor    = require('./garage_door'),
     QuickActions  = require('react-native-quick-actions'),
-    WatchManager  = require('./WatchManager.js'),
-    AlarmAPI      = require('./AlarmAPI'),
-    DateHelper    = require('./DateHelper'),
+    WatchManager  = require('../vendor/watch_manager.js'),
+    AlarmAPI      = require('../api/alarm'),
+    DateHelper    = require('../vendor/date_utils'),
     TimerMixin    = require('react-timer-mixin'),
     subscriptions;
 
 var HouseKeypad = React.createClass({
-  getInitialState: function() {
-    return {
-      garageDoor: 'Connecting',
-      error: null,
-      alarm: null,
-      lastUpdated: null,
-    };
-  },
   getDefaultProps: function() {
     return {
-      url: ServerURL,
       deviceWidth: require('Dimensions').get('window').width
     };
   },
   componentDidMount: function() {
-    AlarmAPI.setPasscode(this.props.passcode);
     var self = this;
+    const dispatch = this.props.dispatch;
+
+    if(!this.props.alarm.passcode) {
+      AsyncStorage.getItem(STORAGE_KEY)
+        .then((value) => {
+          if (value !== null){
+            AlarmAPI.setPasscode(value);
+          } else {
+            AlertIOS.alert("Passcode Missing", "And the passcode entry is broken");
+            // FIXME PasscodeKeypad is really broken.
+            // this.props.navigator.push({title: 'PasscodeKeypad', index: 1});
+          }
+        });
+    }
 
     subscriptions = [
       DeviceEventEmitter.addListener(
         'EventSourceMessage', function(message) {
-          self.setState({error: null, lastUpdated: new Date()});
+          dispatch(alarmActions.connected());
           if(message.event == "garage_door"){
-            self.setState({garageDoor: message.data});
+            dispatch(garageDoorActions.update(message.data));
             WatchManager.sendMessage({garageDoor: message.data});
           }
           else if(message.event == "status") {
             var status = JSON.parse(message.data);
 
-            self.setState({alarm: status});
+            dispatch(alarmActions.update(status));
             WatchManager.sendMessage({
               alarmDisplay: status.human_status}
             );
@@ -60,8 +71,7 @@ var HouseKeypad = React.createClass({
       }),
       DeviceEventEmitter.addListener(
         'EventSourceError', function(data) {
-          self.setState({error: data, garage_door: 'Connecting', alarm: null});
-          console.log(data);
+          dispatch(alarmActions.error(data));
           if(data.code == 2) {
             EventSource.connectWithURL(self.props.url + '/stream');
             console.log('reconnected');
@@ -74,23 +84,19 @@ var HouseKeypad = React.createClass({
       }),
       DeviceEventEmitter.addListener(
         'EventSourceConnected', function() {
-        self.setState({error: null});
+        dispatch(alarmActions.connected());
       }),
       DeviceEventEmitter.addListener(
         'quickActionShortcut', self.handleQuickAction)
     ];
 
-    EventSource.connectWithURL(this.props.url + '/stream');
+    EventSource.connectWithURL(ServerURL + '/stream');
     this.handleQuickAction(QuickActions.popInitialAction());
-
 
     AlarmAPI.status().then(function(response) {
       response.json().then(function(data) {
-        self.setState({
-          garageDoor:  data.garage_door,
-          alarm:       data.alarm,
-          lastUpdated: new Date(data.last_updated)
-        });
+        dispatch(alarmActions.update(data.alarm));
+        dispatch(garageDoorActions.update(data.garage_door));
       });
     });
   },
@@ -138,11 +144,11 @@ var HouseKeypad = React.createClass({
 
     var error;
 
-    if(this.state.error) {
+    if(this.props.alarm.error) {
       error = (
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>
-            {this.state.error.description}
+            {this.props.alarm.error.description}
           </Text>
         </View>
       );
@@ -150,6 +156,7 @@ var HouseKeypad = React.createClass({
 
     return (
       <View style={styles.container}>
+        <WatchConnectivity AlarmAPI={AlarmAPI} GarageDoorAPI={GarageDoorAPI} />
         {alarmDisplay}
         <View style={styles.alarmControlsContainer}>
           <TouchableHighlight onPress={this._off}
@@ -165,18 +172,19 @@ var HouseKeypad = React.createClass({
             <Text style={styles.alarmDanger}>Stay</Text>
           </TouchableHighlight>
         </View>
-        <GarageDoor status={this.state.garageDoor} />
+        <GarageDoor status={this.props.garageDoor.status} />
         <View style={styles.panic}>
           <SlideTo message={'slide to panic'} callback={this._panic} />
         </View>
         {error}
-        <LastUpdate time={this.state.lastUpdated}
-                    style={styles.lastUpdatedContainer} />
+        <LastUpdate time={this.props.alarm.lastUpdated}
+                    style={styles.lastUpdatedContainer}
+                    {...this.props } />
       </View>
     );
   },
   alarmContainerStyle: function() {
-    var status  = this.state.alarm,
+    var status  = this.props.alarm.status,
         style = {
           borderRadius: 4,
           backgroundColor: '#eee',
@@ -196,7 +204,7 @@ var HouseKeypad = React.createClass({
     return style;
   },
   alarmDisplayStyle: function() {
-    var status  = this.state.alarm,
+    var status  = this.props.alarm.status,
         style = {
           fontSize: 40,
           color: '#555',
@@ -213,7 +221,7 @@ var HouseKeypad = React.createClass({
     return style;
   },
   alarmDisplay: function() {
-    var status  = this.state.alarm;
+    var status  = this.props.alarm.status;
 
     if(status)
       return status.human_status;
@@ -231,7 +239,7 @@ var HouseKeypad = React.createClass({
       marginTop: 10,
     }
 
-    if(this.state.garageDoor == "open") {
+    if(this.props.garageDoor.status == "open") {
       style.backgroundColor = '#aaa';
       style.borderColor = '#555';
       style.borderWidth = 2;
@@ -255,11 +263,12 @@ var LastUpdate = React.createClass({
     }, 30000);
   },
   render: function() {
-    if(this.props.time) {
+    const time = this.props.alarm.lastUpdated;
+    if(time) {
       return (
         <View style={this.props.style}>
           <Text style={{textAlign: 'center', color: '#aaa'}}>
-            updated {DateHelper.time_ago_in_words_with_parsing(this.props.time)}
+            updated {DateHelper.time_ago_in_words_with_parsing(time)}
           </Text>
         </View>
       )

@@ -33,9 +33,8 @@ local.properties
 node_modules/
 npm-debug.log
 
-server_url.js
+app/config/server_url.js
 iOS/main.jsbundle
 HouseControl.xcodeproj/npm-debug.log
 HouseControl.xcodeproj/project.xcworkspace/xcshareddata/
 *.xcarchive
-Location.js

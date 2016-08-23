@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
-} = React;
+} = require('react-native');
 
-var GarageDoorAPI = require('./GarageDoorAPI'),
+var GarageDoorAPI = require('../api/garage_door'),
     deviceWidth   = require('Dimensions').get('window').width;
 
 var GarageDoor = React.createClass({

@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var {
   StyleSheet,
   TextInput,
   Text,
   View,
   AsyncStorage,
-} = React;
+} = require('react-native');
 
-var HouseKeypad = require('./HouseKeypad');
+import HouseKeypad from './house_keypad';
 
 var PasscodeKeypad = React.createClass({
   getInitialState: function() {
