@@ -12,18 +12,20 @@ import { setPasscode } from '../actions/alarm.js';
 import * as appViews from '../components';
 
 class HouseControlApp extends Component {
+  componentWillUpdate(nextProps, nextState) {
+    if(nextProps.alarm.passcode != this.props.alarm.passcode) {
+      AlarmAPI.setPasscode(nextProps.alarm.passcode);
+    }
+  }
   renderRoute(route, navigator) {
     switch(route.title) {
       case 'PasscodeKeypad':
         return (<appViews.PasscodeKeypad {...this.props} />);
         break;
       case 'HouseKeypad':
-        return (<appViews.HouseKeypad {...this.props} />);
+        return (<appViews.HouseKeypad {...this.props} AlarmAPI={AlarmAPI}
+                GarageDoorAPI={GarageDoorAPI} />);
         break;
-      default:
-        return (<appViews.Loading dispatch={this.props.dispatch}
-                 passcode={this.props.alarm.passcode}
-                 navigator={navigator} />);
     }
   }
   render() {

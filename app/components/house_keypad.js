@@ -35,21 +35,20 @@ var HouseKeypad = React.createClass({
       deviceWidth: require('Dimensions').get('window').width
     };
   },
-  componentDidMount: function() {
+  componentDidMount: async function() {
     var self = this;
     const dispatch = this.props.dispatch;
 
     if(!this.props.alarm.passcode) {
-      AsyncStorage.getItem(STORAGE_KEY)
-        .then((value) => {
-          if (value !== null){
-            AlarmAPI.setPasscode(value);
-          } else {
-            AlertIOS.alert("Passcode Missing", "And the passcode entry is broken");
-            // FIXME PasscodeKeypad is really broken.
-            // this.props.navigator.push({title: 'PasscodeKeypad', index: 1});
-          }
-        });
+      let passcode = await AsyncStorage.getItem(STORAGE_KEY);
+
+      if (passcode !== null){
+        AlarmAPI.setPasscode(passcode);
+      } else {
+        AlertIOS.alert("Passcode Missing", "And the passcode entry is broken");
+        // FIXME PasscodeKeypad is really broken.
+        // this.props.navigator.push({title: 'PasscodeKeypad', index: 1});
+      }
     }
 
     subscriptions = [
@@ -93,12 +92,11 @@ var HouseKeypad = React.createClass({
     EventSource.connectWithURL(ServerURL + '/stream');
     this.handleQuickAction(QuickActions.popInitialAction());
 
-    AlarmAPI.status().then(function(response) {
-      response.json().then(function(data) {
-        dispatch(alarmActions.update(data.alarm));
-        dispatch(garageDoorActions.update(data.garage_door));
-      });
-    });
+    let response = await AlarmAPI.status();
+    let data     = await response.json();
+
+    dispatch(alarmActions.update(data.alarm));
+    dispatch(garageDoorActions.update(data.garage_door));
   },
   componentDidUmnount: function() {
     subscriptions.map(function(s) { s.remove() });
