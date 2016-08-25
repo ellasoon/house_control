@@ -5,6 +5,7 @@ const initialState = {
   passcode: null,
   error: null,
   lastUpdated: null,
+  passcodeStorageKey: 'HouseControlApp:passcode',
 };
 
 export default function alarm(state = initialState, action = {}) {

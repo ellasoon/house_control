@@ -20,11 +20,11 @@ class HouseControlApp extends Component {
   renderRoute(route, navigator) {
     switch(route.title) {
       case 'PasscodeKeypad':
-        return (<appViews.PasscodeKeypad {...this.props} />);
+        return (<appViews.PasscodeKeypad {...this.props} navigator={navigator} />);
         break;
       case 'HouseKeypad':
         return (<appViews.HouseKeypad {...this.props} AlarmAPI={AlarmAPI}
-                GarageDoorAPI={GarageDoorAPI} />);
+                GarageDoorAPI={GarageDoorAPI} navigator={navigator} />);
         break;
     }
   }

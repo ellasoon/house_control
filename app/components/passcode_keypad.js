@@ -9,7 +9,7 @@ var {
   AsyncStorage,
 } = require('react-native');
 
-import HouseKeypad from './house_keypad';
+import { setPasscode } from '../actions/alarm';
 
 var PasscodeKeypad = React.createClass({
   getInitialState: function() {
@@ -35,7 +35,7 @@ var PasscodeKeypad = React.createClass({
       </View>
     );
   },
-  _onChange: function(text) {
+  _onChange: async function(text) {
     if(this.state.passcode.length < 4){
       this.setState({passcode: text});
       if(text.length == 4){
@@ -45,21 +45,9 @@ var PasscodeKeypad = React.createClass({
     } else {
       if(text.length == 4){
         if(text == this.state.passcode) {
-          console.log(this.props.storageKey);
-          AsyncStorage.setItem(this.props.storageKey, text)
-            .then(() => {
-              console.log(this.state.passcode);
-              console.log(text);
-              this.props.navigator.push({
-                title: 'House Keypad',
-                component: HouseKeypad,
-                props: { passcode: text }
-              });
-            })
-            .catch((error) => {
-              console.log("Error!");
-            })
-            .done();
+          await AsyncStorage.setItem(this.props.alarm.passcodeStorageKey, text);
+          this.props.dispatch(setPasscode(text));
+          this.props.navigator.pop();
         } else {
           this.setState({passcode: '', passcodeConfirm: '',
                         passcodeMessage: "Passcodes don't match. Please try again"});

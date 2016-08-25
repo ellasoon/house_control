@@ -15,8 +15,6 @@ import * as alarmActions from '../actions/alarm';
 import * as garageDoorActions from '../actions/garage_door';
 import WatchConnectivity from '../components/watch_connectivity';
 
-const STORAGE_KEY = 'HouseControlApp:passcode';
-
 var EventSource   = require('NativeModules').RNEventSource,
     ServerURL     = require('../config/server_url.js'),
     SlideTo       = require('./slide_to'),
@@ -38,14 +36,13 @@ var HouseKeypad = React.createClass({
     const { dispatch, AlarmAPI } = this.props;
 
     if(!this.props.alarm.passcode) {
-      let passcode = await AsyncStorage.getItem(STORAGE_KEY);
+      const storageKey = this.props.alarm.passcodeStorageKey;
+      let passcode = await AsyncStorage.getItem(storageKey);
 
       if (passcode !== null){
         dispatch(alarmActions.setPasscode(passcode));
       } else {
-        AlertIOS.alert("Passcode Missing", "And the passcode entry is broken");
-        // FIXME PasscodeKeypad is really broken.
-        // this.props.navigator.push({title: 'PasscodeKeypad', index: 1});
+        this.props.navigator.push({title: 'PasscodeKeypad', index: 1});
       }
     }
 
