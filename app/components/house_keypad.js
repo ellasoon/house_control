@@ -20,11 +20,9 @@ const STORAGE_KEY = 'HouseControlApp:passcode';
 var EventSource   = require('NativeModules').RNEventSource,
     ServerURL     = require('../config/server_url.js'),
     SlideTo       = require('./slide_to'),
-    GarageDoorAPI = require('../api/garage_door'),
     GarageDoor    = require('./garage_door'),
     QuickActions  = require('react-native-quick-actions'),
     WatchManager  = require('../vendor/watch_manager.js'),
-    AlarmAPI      = require('../api/alarm'),
     DateHelper    = require('../vendor/date_utils'),
     TimerMixin    = require('react-timer-mixin'),
     subscriptions;
@@ -37,13 +35,13 @@ var HouseKeypad = React.createClass({
   },
   componentDidMount: async function() {
     var self = this;
-    const dispatch = this.props.dispatch;
+    const { dispatch, AlarmAPI } = this.props;
 
     if(!this.props.alarm.passcode) {
       let passcode = await AsyncStorage.getItem(STORAGE_KEY);
 
       if (passcode !== null){
-        AlarmAPI.setPasscode(passcode);
+        dispatch(alarmActions.setPasscode(passcode));
       } else {
         AlertIOS.alert("Passcode Missing", "And the passcode entry is broken");
         // FIXME PasscodeKeypad is really broken.
@@ -104,6 +102,9 @@ var HouseKeypad = React.createClass({
   },
   handleQuickAction:  function(data) {
     if(data == null) return false;
+
+    const { AlarmAPI, GarageDoorAPI } = this.props;
+
     if(data.type == 'com.housecontrol.app.leave'){
       AlarmAPI.away();
       GarageDoorAPI.toggle();
@@ -113,25 +114,27 @@ var HouseKeypad = React.createClass({
     }
   },
   _toggleGarage: function(e) {
-    GarageDoorAPI.toggle();
+    this.props.GarageDoorAPI.toggle();
   },
   _off: function() {
-    AlarmAPI.off();
+    this.props.AlarmAPI.off();
   },
   _away: function() {
-    AlarmAPI.away();
+    this.props.AlarmAPI.away();
   },
   _stay: function() {
-    AlarmAPI.stay();
+    this.props.AlarmAPI.stay();
   },
   _panic: function() {
-    AlarmAPI.panic();
+    this.props.AlarmAPI.panic();
     AlertIOS.alert(
       'Alarm Panic',
       'Hang in there. Everything will be ok'
     );
   },
   render: function() {
+    const { AlarmAPI, GarageDoorAPI } = this.props;
+
     var alarmDisplay = (
       <View style={this.alarmContainerStyle()}>
         <Text style={this.alarmDisplayStyle()}>
