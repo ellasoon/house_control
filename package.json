@@ -14,6 +14,8 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "reactotron-react-native": "^1.0.0",
+    "reactotron-redux": "^1.0.0",
     "remote-redux-devtools": "^0.4.2"
   }
 }

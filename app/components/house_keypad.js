@@ -49,7 +49,6 @@ var HouseKeypad = React.createClass({
     subscriptions = [
       DeviceEventEmitter.addListener(
         'EventSourceMessage', function(message) {
-          dispatch(alarmActions.connected());
           if(message.event == "garage_door"){
             dispatch(garageDoorActions.update(message.data));
             WatchManager.sendMessage({garageDoor: message.data});
