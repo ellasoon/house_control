@@ -5,11 +5,11 @@ My first react-native app. Built to replace the sometimes painfully slow web
 interface of [alarm_keypad][ak].
 
 __DISCLAIMER__: This was a learning project and as a result it's pretty rough
-around the edges, especially the styling in `HouseKeypad.js`. While it may be
-helpful for reference please do not use this as an example of a "well done"
-react-native app :heart:
+around the edges, especially the code in `app/components/house_keypad.js`. 
+While it may be helpful for reference please do not use this as an example of
+a "well structured" react-native app. At least not yet :heart:
 
-![Screenshot of app](http://i.imgur.com/PLyVuTw.png)
+![Screenshot of app](http://i.imgur.com/wKTfCpR.png)
 
 ## Setup
 
@@ -31,7 +31,7 @@ points to your [alarm_keypad][ak] endpoint.
 ## TODO
 
 - ~~Add Panic Button (Slide to Panic)~~
-- Restore nice garage door graphic
+- ~~Restore nice garage door graphic~~
 - Animate garage door opening / closing
 - ~~Indicate when connection to the server is lost~~
 
