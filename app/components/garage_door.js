@@ -1,69 +1,57 @@
 'use strict';
 
-var React = require('react');
+import React, { Component } from 'react';
+
 var {
   StyleSheet,
-  Text,
   View,
-  TouchableHighlight,
+  TouchableOpacity,
+  Animated,
 } = require('react-native');
 
-var GarageDoorAPI = require('../api/garage_door'),
-    deviceWidth   = require('Dimensions').get('window').width;
+import Svg,{
+  G,
+  Polygon,
+  Rect,
+  Text,
+} from 'react-native-svg';
 
-var GarageDoor = React.createClass({
-  toggle: function() {
-    GarageDoorAPI.toggle();
-  },
-  render: function() {
-    return (
-      <TouchableHighlight style={this.garageDoorContainerStyle()}
-                            onPress={this.toggle}>
-        <View style={styles.centered}>
-          <Text style={styles.garageDoorText}>
-            Garage Door
-          </Text>
-          <Text style={[styles.garageDoorText, styles.garageDoorStatus]}>
-            {this.props.status.toUpperCase()}
-          </Text>
-        </View>
-      </TouchableHighlight>
-    );
-  },
-  garageDoorContainerStyle: function() {
-    var style = {
-      backgroundColor: '#555',
-      alignItems: 'center',
-      padding: 30,
-      borderRadius: 4,
-      width: deviceWidth - 20,
-      marginTop: 10,
-    }
+const GarageDoor = ({status, onPress}) => (
+  <TouchableOpacity onPress={onPress}>
+    <GarageSvg status={status} />
+  </TouchableOpacity>
+)
 
-    if(this.props.status == "open") {
-      style.backgroundColor = '#aaa';
-      style.borderColor = '#555';
-      style.borderWidth = 2;
-    }
+const GarageSvg = ({status}) => {
+  let door, fillColor = '#000000';
 
-    return style;
+  if(status == 'closed') {
+    door = (<DoorSvg />)
+  } else if (status == null || status != 'open') {
+    fillColor = '#aaaaaa';
+
+    door = (<Text x="51" y="50" stroke={fillColor} fontWeight="200"
+            width="200"
+            textAnchor="middle">{status}</Text>)
   }
-});
 
-var styles = StyleSheet.create({
-  garageDoorText: {
-    fontSize: 24,
-    color: '#fff',
-    textAlign: 'center',
-  },
-  garageDoorStatus: {
-    fontSize: 16,
-    marginTop: 10,
-    textAlign: 'center',
-  },
-  centered: {
-    alignItems: 'center',
-  },
-});
+  return (
+    <Svg width="250" height="200" viewBox="0 0 104 78">
+      <G fill={fillColor}>
+        <Polygon points="52,0.949 0.375,27.032 3.375,30.36 52,5.699 100.625,30.36 103.625,27.032" />
+        <Polygon points="52,12.533 6.375,35.334 6.375,77.021 18,77.021 18,35.199 52,35.199 86,35.199 86,77.021 97.625,77.021 97.625,35.334" />
+        {door}
+      </G>
+    </Svg>
+  )
+}
+
+const DoorSvg = () => (
+  <G x="21" y="43">
+    <Rect x="1" y="0" width="60.5" height="7.5" />
+    <Rect x="1" y="11.167" width="60.5" height="7.5" />
+    <Rect x="0.75" y="22.834" width="60.5" height="7.5" />
+  </G>
+)
 
 module.exports = GarageDoor;

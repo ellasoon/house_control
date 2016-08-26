@@ -169,7 +169,8 @@ var HouseKeypad = React.createClass({
             <Text style={styles.alarmDanger}>Stay</Text>
           </TouchableHighlight>
         </View>
-        <GarageDoor status={this.props.garageDoor.status} />
+        <GarageDoor status={this.props.garageDoor.status}
+          onPress={this._toggleGarage} />
         <View style={styles.panic}>
           <SlideTo message={'slide to panic'} callback={this._panic} />
         </View>
@@ -296,6 +297,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'stretch',
     marginTop: 10,
+    marginBottom: 40,
   },
   alarmOff: {
     color: '#428BCA',
