@@ -12,7 +12,7 @@ import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
   
-  private let session : WCSession? = WCSession.isSupported() ? WCSession.defaultSession() : nil
+  fileprivate let session : WCSession? = WCSession.isSupported() ? WCSession.default() : nil
   
   @IBOutlet var garageDoorStatusLabel: WKInterfaceLabel!
   @IBOutlet var garageDoorButton: WKInterfaceButton!
@@ -20,19 +20,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
   @IBOutlet var lastUpdatedLabel: WKInterfaceLabel!
   
   @IBAction func garageDoorButtonPressed() {
-    sendMessage(["garageDoor": "toggle"])
+    sendMessage(["garageDoor": "toggle" as AnyObject])
   }
   
   @IBAction func alarmStayMenuPressed() {
-    sendMessage(["alarm": "stay"])
+    sendMessage(["alarm": "stay" as AnyObject])
   }
   
   @IBAction func alarmAwayMenuPressed() {
-    sendMessage(["alarm": "away"])
+    sendMessage(["alarm": "away" as AnyObject])
   }
   
   @IBAction func alarmOffMenuPressed() {
-    sendMessage(["alarm": "off"])
+    sendMessage(["alarm": "off" as AnyObject])
   }
   
   @IBAction func refreshMenuPressed() {
@@ -64,23 +64,23 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         alarmStatusLabel.setText(status)
         
         if(status == "Ready") {
-          alarmStatusLabel.setTextColor(UIColor.greenColor())
-        } else if(status.containsString("Armed")) {
-          alarmStatusLabel.setTextColor(UIColor.redColor())
+          alarmStatusLabel.setTextColor(UIColor.green)
+        } else if(status.contains("Armed")) {
+          alarmStatusLabel.setTextColor(UIColor.red)
         } else {
-          alarmStatusLabel.setTextColor(UIColor.whiteColor())
+          alarmStatusLabel.setTextColor(UIColor.white)
         }
       }
     }
   }
   
-  var lastUpdated: NSDate? {
+  var lastUpdated: Date? {
     didSet {
       if let lastUpdated = lastUpdated   {
-        let formatter = NSDateFormatter()
-        formatter.timeStyle = .ShortStyle
-        formatter.dateStyle = .NoStyle
-        lastUpdatedLabel.setText(formatter.stringFromDate(lastUpdated))
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        lastUpdatedLabel.setText(formatter.string(from: lastUpdated))
       }
     }
   }
@@ -97,38 +97,38 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     super.init()
     
     session?.delegate = self
-    session?.activateSession()
+    session?.activate()
   }
   
-  func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+  func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
     let message = message as NSDictionary
     
-    let garageDoor   = message.valueForKey("garageDoor") as? String
+    let garageDoor   = message.value(forKey: "garageDoor") as? String
     //let alarm        = message.valueForKey("alarm") as? String
-    let alarmDisplay = message.valueForKey("alarmDisplay") as? String
+    let alarmDisplay = message.value(forKey: "alarmDisplay") as? String
     
-    if (garageDoor != nil)   { self.garageDoorStatus = String(garageDoor!).capitalizedString }
+    if (garageDoor != nil)   { self.garageDoorStatus = String(garageDoor!).capitalized }
     if (alarmDisplay != nil) { self.alarmStatus      = alarmDisplay }
     
-    lastUpdated = NSDate()
+    lastUpdated = Date()
   }
   
   func requestUpdate() {
-    sendMessage(["update": "request"])
+    sendMessage(["update": "request" as AnyObject])
   }
   
-  func showErrorAlert(error: String){
+  func showErrorAlert(_ error: String){
     
     let h0 = { print("ok")}
     
-    let action1 = WKAlertAction(title: "OK", style: .Default, handler:h0)
+    let action1 = WKAlertAction(title: "OK", style: .default, handler:h0)
     
-    presentAlertControllerWithTitle("Error", message: error, preferredStyle: .ActionSheet, actions: [action1])
+    presentAlert(withTitle: "Error", message: error, preferredStyle: .actionSheet, actions: [action1])
   }
   
-  func sendMessage(messageData: [String : AnyObject]) {
+  func sendMessage(_ messageData: [String : AnyObject]) {
     print(session)
-      if let session = session where session.reachable {
+      if let session = session , session.isReachable {
         session.sendMessage(messageData,
           replyHandler: { replyData in
           }, errorHandler: { error in
@@ -137,8 +137,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
       }
   }
   
-  override func awakeWithContext(context: AnyObject?) {
-    super.awakeWithContext(context)
+  override func awake(withContext context: Any?) {
+    super.awake(withContext: context)
   }
 
   override func willActivate() {
