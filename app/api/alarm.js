@@ -1,9 +1,10 @@
+import ServerURL from '../config/server_url';
+
 var AlarmAPI = function() {
-  var serverURL = require('../config/server_url.js'),
-      passcode;
+  let passcode;
 
   var _sendKey = function(key) {
-    return fetch(serverURL + '/write' + '?key=' + String(passcode) + key, {
+    return fetch(ServerURL + '/write' + '?key=' + String(passcode) + key, {
       method: 'post'
     });
   };
@@ -25,7 +26,7 @@ var AlarmAPI = function() {
       fetch(ServerURL + '/panic', { method: 'post' });
     },
     status: function() {
-      return fetch(serverURL + '/status.json?timestamp=' + (new Date).toJSON());
+      return fetch(ServerURL + '/status.json?timestamp=' + (new Date).toJSON());
     }
   }
 }();

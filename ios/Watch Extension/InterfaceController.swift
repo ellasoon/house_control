@@ -11,6 +11,12 @@ import Foundation
 import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
+  /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+  @available(watchOS 2.2, *)
+  public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    //TODO
+  }
+
   
   fileprivate let session : WCSession? = WCSession.isSupported() ? WCSession.default() : nil
   

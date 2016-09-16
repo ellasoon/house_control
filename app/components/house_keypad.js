@@ -14,9 +14,13 @@ var {
 import * as alarmActions from '../actions/alarm';
 import * as garageDoorActions from '../actions/garage_door';
 import WatchConnectivity from '../components/watch_connectivity';
+import ServerURL from '../config/server_url';
+
+console.log("----------------------")
+console.log(ServerURL)
+console.log("----------------------")
 
 var EventSource   = require('NativeModules').RNEventSource,
-    ServerURL     = require('../config/server_url.js'),
     SlideTo       = require('./slide_to'),
     GarageDoor    = require('./garage_door'),
     QuickActions  = require('react-native-quick-actions'),
@@ -66,7 +70,7 @@ var HouseKeypad = React.createClass({
         'EventSourceError', function(data) {
           dispatch(alarmActions.error(data));
           if(data.code == 2) {
-            EventSource.connectWithURL(self.props.url + '/stream');
+            EventSource.connectWithURL(ServerURL + '/stream');
             console.log('reconnected');
           }
           WatchManager.sendMessage({
