@@ -1,15 +1,15 @@
-var GarageDoorAPI = function() {
-  var serverURL = require('../config/server_url.js');
+import ServerURL from '../config/server_url';
 
+var GarageDoorAPI = function() {
   return {
     toggle: function() {
-      fetch(serverURL + '/toggle', {
+      fetch(ServerURL + '/toggle', {
         method: 'post'
       });
     },
 
     status: function() {
-      fetch(serverURL + '/status')
+      fetch(ServerURL + '/status')
     }
   }
 }();

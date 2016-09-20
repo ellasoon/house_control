@@ -6,6 +6,7 @@ var {
   Text,
   View,
   DeviceEventEmitter,
+  NativeAppEventEmitter,
   TouchableHighlight,
   AlertIOS,
   AsyncStorage,
@@ -15,13 +16,10 @@ import * as alarmActions from '../actions/alarm';
 import * as garageDoorActions from '../actions/garage_door';
 import WatchConnectivity from '../components/watch_connectivity';
 import ServerURL from '../config/server_url';
+import RNEventSource from 'react-native-event-source';
 
-console.log("----------------------")
-console.log(ServerURL)
-console.log("----------------------")
-
-var EventSource   = require('NativeModules').RNEventSource,
-    SlideTo       = require('./slide_to'),
+// var EventSource   = require('NativeModules').RNEventSource,
+var SlideTo       = require('./slide_to'),
     GarageDoor    = require('./garage_door'),
     QuickActions  = require('react-native-quick-actions'),
     WatchManager  = require('../vendor/watch_manager.js'),
@@ -50,44 +48,39 @@ var HouseKeypad = React.createClass({
       }
     }
 
-    subscriptions = [
-      DeviceEventEmitter.addListener(
-        'EventSourceMessage', function(message) {
-          if(message.event == "garage_door"){
-            dispatch(garageDoorActions.update(message.data));
-            WatchManager.sendMessage({garageDoor: message.data});
-          }
-          else if(message.event == "status") {
-            var status = JSON.parse(message.data);
+    this.eventSource = new RNEventSource(ServerURL + '/stream');
 
-            dispatch(alarmActions.update(status));
-            WatchManager.sendMessage({
-              alarmDisplay: status.human_status}
-            );
-          }
+    subscriptions = [
+      this.eventSource.addEventListener('status', function(message) {
+        var status = JSON.parse(message.data);
+
+        dispatch(alarmActions.update(status));
+
+        WatchManager.sendMessage({
+          alarmDisplay: status.human_status}
+        );
       }),
-      DeviceEventEmitter.addListener(
-        'EventSourceError', function(data) {
-          dispatch(alarmActions.error(data));
-          if(data.code == 2) {
-            EventSource.connectWithURL(ServerURL + '/stream');
-            console.log('reconnected');
-          }
+      this.eventSource.addEventListener('garage_door', function(message) {
+        dispatch(garageDoorActions.update(message.data));
+        WatchManager.sendMessage({garageDoor: message.data});
+      }),
+      this.eventSource.addEventListener('error', function(data) {
+        if(data.message != 'reconnecting') {
+          dispatch(alarmActions.error(data.message));
           WatchManager.sendMessage({
             alarmDisplay: 'Connecting ...',
             garageDoor: 'Connecting ...',
-            error: data
+            error: data.message
           });
+        }
       }),
-      DeviceEventEmitter.addListener(
-        'EventSourceConnected', function() {
+      this.eventSource.addEventListener('open', function(message) {
         dispatch(alarmActions.connected());
       }),
       DeviceEventEmitter.addListener(
         'quickActionShortcut', self.handleQuickAction)
     ];
 
-    EventSource.connectWithURL(ServerURL + '/stream');
     this.handleQuickAction(QuickActions.popInitialAction());
 
     let response = await AlarmAPI.status();
@@ -97,8 +90,8 @@ var HouseKeypad = React.createClass({
     dispatch(garageDoorActions.update(data.garage_door));
   },
   componentDidUmnount: function() {
-    subscriptions.map(function(s) { s.remove() });
-    EventSource.close();
+    subscriptions.map((s) => { s.remove(); });
+    this.eventSource.close();
   },
   handleQuickAction:  function(data) {
     if(data == null) return false;
@@ -149,7 +142,7 @@ var HouseKeypad = React.createClass({
       error = (
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>
-            {this.props.alarm.error.description}
+            {this.props.alarm.error}
           </Text>
         </View>
       );
