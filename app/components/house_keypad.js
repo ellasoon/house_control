@@ -17,10 +17,10 @@ import * as garageDoorActions from '../actions/garage_door';
 import WatchConnectivity from '../components/watch_connectivity';
 import ServerURL from '../config/server_url';
 import RNEventSource from 'react-native-event-source';
+import GarageDoor from './garage_door';
 
 // var EventSource   = require('NativeModules').RNEventSource,
 var SlideTo       = require('./slide_to'),
-    GarageDoor    = require('./garage_door'),
     QuickActions  = require('react-native-quick-actions'),
     WatchManager  = require('../vendor/watch_manager.js'),
     DateHelper    = require('../vendor/date_utils'),
@@ -55,24 +55,12 @@ var HouseKeypad = React.createClass({
         var status = JSON.parse(message.data);
 
         dispatch(alarmActions.update(status));
-
-        WatchManager.sendMessage({
-          alarmDisplay: status.human_status}
-        );
       }),
       this.eventSource.addEventListener('garage_door', function(message) {
         dispatch(garageDoorActions.update(message.data));
-        WatchManager.sendMessage({garageDoor: message.data});
       }),
       this.eventSource.addEventListener('error', function(data) {
-        if(data.message != 'reconnecting') {
-          dispatch(alarmActions.error(data.message));
-          WatchManager.sendMessage({
-            alarmDisplay: 'Connecting ...',
-            garageDoor: 'Connecting ...',
-            error: data.message
-          });
-        }
+        dispatch(alarmActions.error(data.message));
       }),
       this.eventSource.addEventListener('open', function(message) {
         dispatch(alarmActions.connected());
@@ -150,7 +138,9 @@ var HouseKeypad = React.createClass({
 
     return (
       <View style={styles.container}>
-        <WatchConnectivity AlarmAPI={AlarmAPI} GarageDoorAPI={GarageDoorAPI} />
+        <WatchConnectivity AlarmAPI={AlarmAPI} GarageDoorAPI={GarageDoorAPI}
+          alarmStatus={this.alarmDisplay()} garageDoorStatus={this.props.garageDoor.status}
+          error={this.props.alarm.error} />
         {alarmDisplay}
         <View style={styles.alarmControlsContainer}>
           <TouchableHighlight onPress={this._off}

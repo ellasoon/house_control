@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import { View } from 'react-native';
 
 import Reactotron from 'reactotron-react-native';
 import createReactotronEnhancer from 'reactotron-redux';

@@ -22,7 +22,10 @@ const GarageDoor = ({status, onPress}) => (
   </TouchableOpacity>
 )
 
-const GarageSvg = ({status}) => {
+export const GarageSvg = ({status, width, height}) => {
+  width  = width || '250';
+  height = height || '200';
+
   let door, fillColor = '#000000';
 
   if(status == 'closed') {
@@ -36,7 +39,7 @@ const GarageSvg = ({status}) => {
   }
 
   return (
-    <Svg width="250" height="200" viewBox="0 0 104 78">
+    <Svg width={width} height={height} viewBox="0 0 104 78">
       <G fill={fillColor}>
         <Polygon points="52,0.949 0.375,27.032 3.375,30.36 52,5.699 100.625,30.36 103.625,27.032" />
         <Polygon points="52,12.533 6.375,35.334 6.375,77.021 18,77.021 18,35.199 52,35.199 86,35.199 86,77.021 97.625,77.021 97.625,35.334" />
@@ -54,4 +57,4 @@ const DoorSvg = () => (
   </G>
 )
 
-module.exports = GarageDoor;
+export default GarageDoor;

@@ -3,11 +3,11 @@ import { View } from 'react-native';
 
 import WatchManager from '../vendor/watch_manager';
 
-WatchManager.activate();
-
 class WatchConnectivity extends Component {
   componentDidMount() {
     const { GarageDoorAPI, AlarmAPI } = this.props;
+
+    WatchManager.activate();
 
     this.subscription = WatchManager.addMessageListener((message) => {
       if(message.garageDoor) {
@@ -37,6 +37,27 @@ class WatchConnectivity extends Component {
   }
   componentDidUmnount() {
     WatchManager.removeMessageListener(this.subscription);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    let changes = {};
+
+    if(nextProps.error != this.props.error) {
+      changes.error = nextProps.error;
+    }
+
+    if(nextProps.alarmStatus != this.props.alarmStatus) {
+      changes.alarmDisplay = nextProps.alarmStatus;
+    }
+
+    if(nextProps.garageDoorStatus != this.props.garageDoorStatus) {
+      changes.garageDoor = nextProps.garageDoorStatus;
+    }
+
+    if(Object.keys(changes).length > 0) {
+      WatchManager.sendMessage(changes);
+    }
+
+    return false;
   }
   render () {
     return (<View />)

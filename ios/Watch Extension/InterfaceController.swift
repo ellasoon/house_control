@@ -110,11 +110,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     let message = message as NSDictionary
     
     let garageDoor   = message.value(forKey: "garageDoor") as? String
-    //let alarm        = message.valueForKey("alarm") as? String
+    let errorMessage = message.value(forKey: "error") as? String
     let alarmDisplay = message.value(forKey: "alarmDisplay") as? String
     
     if (garageDoor != nil)   { self.garageDoorStatus = String(garageDoor!).capitalized }
     if (alarmDisplay != nil) { self.alarmStatus      = alarmDisplay }
+    if (errorMessage != nil) { showErrorAlert(errorMessage!) }
     
     lastUpdated = Date()
   }
